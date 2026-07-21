@@ -1,6 +1,5 @@
 from flask import Flask, jsonify 
 import socket
-import datetime
 app = Flask(__name__)
 
 @app.route('/api/details')
@@ -9,7 +8,6 @@ def get_details():
         'name': 'Anil',
         'age': 30,
         'email': 'anil.p@tecnotree.com'}
-        'date': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     return jsonify(json_data)
 
 @app.route('/api/host_details')
