@@ -10,7 +10,7 @@ spec:
   - host: python-app.tecnotree.com
     http:
       paths:
-      - path: /api/api/details
+      - path: /api/details
         pathType: Prefix
         backend:
           service:
