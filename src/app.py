@@ -7,7 +7,8 @@ def get_details():
     json_data = {
         'name': 'Anil',
         'age': 30,
-        'email': 'anil.p@tecnotree.com'}
+        'email': 'anil.p@tecnotree.com',
+        'location': 'Mars'
     return jsonify(json_data)
 
 @app.route('/api/host_details')
