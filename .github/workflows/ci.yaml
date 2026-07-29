@@ -2,8 +2,8 @@ name: ci
 
 on:
   push:
-  paths:
-    - 'src/**'
+    paths:
+      - 'src/**'
     branches:
       - master
 
