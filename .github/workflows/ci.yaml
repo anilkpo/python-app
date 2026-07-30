@@ -10,6 +10,8 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    env:
+      VERSION: V${{ github.run_number }}
     steps:
       -
         name: Login to Docker Hub
@@ -26,4 +28,4 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: true
-          tags: anilkponnam/python-app:${{ steps.image_tag.outputs.tag }}
+          tags: anilkponnam/python-app:${VERSION}
