@@ -9,7 +9,7 @@ def get_details():
         'age': 30,
         'email': 'anil.p@tecnotree.com',
         'location': 'Mars',
-         "skills": ['Python', 'Flask', 'Docker']
+         "skills": ['Python', 'java', 'Docker']
     }
     return jsonify(json_data)
 
