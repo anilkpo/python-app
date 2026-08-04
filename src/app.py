@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/api/details')
 def get_details():
     json_data = {
-        'name': 'Anil',
+        'name': 'Anilkumar Ponnam',
         'age': 30,
         'email': 'anil.p@tecnotree.com',
         'location': 'Mars',
