@@ -47,7 +47,7 @@ jobs:
       - name: argoCD deploy
         uses: argoproj/argocd-action@v2
         with:
-          argocd_server: ${{ var.ARGOCD_SERVER }}
+          argocd_server: ${{ vars.ARGOCD_SERVER }}
           argocd_username: ${{ vars.ARGOCD_USERNAME }}
           argocd_password: ${{ secrets.ARGOCD_PASSWORD }}
           app_name: python-app
