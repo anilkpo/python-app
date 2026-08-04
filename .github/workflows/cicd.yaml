@@ -46,7 +46,7 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
 
       - name: Login to ArgoCD
-        uses: clowdhaus/argo-cd-action@v2
+        uses: clowdhaus/argo-cd-action@main
         with:
           command: login
           options: > 
@@ -56,7 +56,7 @@ jobs:
             --insecure
             --grpc-web
       - name: Sync ArgoCD Application
-        uses: clowdhaus/argo-cd-action@v2
+        uses: clowdhaus/argo-cd-action@main
         with:
           command: app sync
           options: > 
