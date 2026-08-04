@@ -39,7 +39,7 @@ jobs:
 
       - name: update image tag in values.yaml
         run: |
-          yaml_file="./charts/values.yaml"
+          yaml_file="./charts/python-app/values.yaml"
           image_tag="${{ needs.ci.outputs.image_tag }}"
           yq eval -i ".image.tag = \"v$image_tag\"" "$yaml_file"
 
