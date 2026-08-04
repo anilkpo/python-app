@@ -62,7 +62,7 @@ jobs:
 
       - name: Login to ArgoCD
         run: |
-          argocd login ${{ vars.ARGOCD_SERVER }} --username ${{ vars.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure --grpc-web
+          argocd login ${{ vars.ARGOCD_SERVER }}:443 --username ${{ vars.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure --grpc-web
       - name: Sync ArgoCD Application
         run: |
             argocd app sync python-app --prune --timeout 300
