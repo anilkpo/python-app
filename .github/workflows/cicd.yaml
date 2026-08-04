@@ -57,7 +57,7 @@ jobs:
           
       - name: Install ArgoCD CLI
         run: |
-          sudo curl -KsSL -o argocd-linux-amd64 https//${{ vars.ARGOCD_SERVER}}/download/argocd-linux-amd64
+          sudo curl -ksSL -o argocd-linux-amd64 https//${{ vars.ARGOCD_SERVER}}/download/argocd-linux-amd64
             sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd 
 
       - name: Login to ArgoCD
