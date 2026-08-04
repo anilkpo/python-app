@@ -50,6 +50,7 @@ jobs:
           branch: master
       - name: push changes
         uses: ad-m/github-push-action@v0.6.0
+        github_token: ${{ secrets.CODE_TOKEN }}
 
       - name: Login to ArgoCD
         uses: clowdhaus/argo-cd-action@main

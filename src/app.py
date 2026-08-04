@@ -10,7 +10,7 @@ def get_details():
         'email': 'anil.p@tecnotree.com',
         'location': 'Mars',
         'last_name': 'kumar',
-        'designation': 'Software Engineer',
+        'designation': 'platform Engineer',
         "skills": ['Python', 'java', 'Docker','githubactions','k8s','helm','argoCD','backstage','flask','fastapi','django','postgresql','mysql','mongodb','redis','celery','rabbitmq','kafka'],
     }
     return jsonify(json_data)
