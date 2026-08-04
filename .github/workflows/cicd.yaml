@@ -54,23 +54,18 @@ jobs:
         with:
           github_token: ${{ secrets.CODE_TOKEN }}
           branch: master
+          
+      - name: Install ArgoCD CLI
+        run: |
+          sudo curl -KsSL -o argocd-linux-amd64 https//${{ vars.ARGOCD_SERVER}}/download/argocd-linux-amd64
+            sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd 
 
       - name: Login to ArgoCD
-        uses: clowdhaus/argo-cd-action@main
-        with:
-          command: login
-          options: > 
-            ${{ vars.ARGOCD_SERVER }}
-            -- username: ${{ vars.ARGOCD_USERNAME }}
-            -- password: ${{ secrets.ARGOCD_PASSWORD }}
-            --insecure
-            --grpc-web
+        run: |
+          argocd login ${{ vars.ARGOCD_SERVER }} --username ${{ vars.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure --grpc-web
       - name: Sync ArgoCD Application
-        uses: clowdhaus/argo-cd-action@main
-        with:
-          command: app sync
-          options: > 
-            python-app sync --prune --timeout 300
+        run: |
+            argocd app sync python-app --prune --timeout 300
 
 
         
