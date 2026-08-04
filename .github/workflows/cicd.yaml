@@ -16,6 +16,7 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Build and push
         uses: docker/build-push-action@v7
         with:
@@ -44,13 +45,22 @@ jobs:
       - name: push changes
         uses: ad-m/github-push-action@v0.6.0
 
-      - name: argoCD deploy
-        uses: argoproj/argocd-action@v2
+      - name: Login to ArgoCD
+        uses: clowdhaus/argo-cd-action@v2
         with:
-          argocd_server: ${{ vars.ARGOCD_SERVER }}
-          argocd_username: ${{ vars.ARGOCD_USERNAME }}
-          argocd_password: ${{ secrets.ARGOCD_PASSWORD }}
-          app_name: python-app
-          project_name: default
-          namespace: python-app
+          command: login
+          options: > 
+            ${{ vars.ARGOCD_SERVER }}
+            -- username: ${{ vars.ARGOCD_USERNAME }}
+            -- password: ${{ secrets.ARGOCD_PASSWORD }}
+            --insecure
+            --grpc-web
+      - name: Sync ArgoCD Application
+        uses: clowdhaus/argo-cd-action@v2
+        with:
+          command: app sync
+          options: > 
+            python-app sync --prune --timeout 300
+
+
         
