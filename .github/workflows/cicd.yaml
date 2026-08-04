@@ -48,9 +48,12 @@ jobs:
         with:
           commit_message: "Update image tag to v${{ needs.ci.outputs.image_tag }}"
           branch: master
+
       - name: push changes
         uses: ad-m/github-push-action@v0.6.0
-        github_token: ${{ secrets.CODE_TOKEN }}
+        with:
+          github_token: ${{ secrets.CODE_TOKEN }}
+          branch: master
 
       - name: Login to ArgoCD
         uses: clowdhaus/argo-cd-action@main

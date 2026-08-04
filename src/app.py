@@ -9,7 +9,6 @@ def get_details():
         'age': 30,
         'email': 'anil.p@tecnotree.com',
         'location': 'Mars',
-        'last_name': 'kumar',
         'designation': 'platform Engineer',
         "skills": ['Python', 'java', 'Docker','githubactions','k8s','helm','argoCD','backstage','flask','fastapi','django','postgresql','mysql','mongodb','redis','celery','rabbitmq','kafka'],
     }
